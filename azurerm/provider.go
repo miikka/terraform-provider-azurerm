@@ -14,6 +14,7 @@ import (
 	"github.com/hashicorp/terraform/terraform"
 	"github.com/terraform-providers/terraform-provider-azurerm/azurerm/helpers/suppress"
 	"github.com/terraform-providers/terraform-provider-azurerm/azurerm/helpers/validate"
+	`github.com/terraform-providers/terraform-provider-azurerm/azurerm/internal/flags`
 	"github.com/terraform-providers/terraform-provider-azurerm/azurerm/utils"
 )
 
@@ -493,11 +494,13 @@ func providerConfigure(p *schema.Provider) schema.ConfigureFunc {
 			SupportsClientSecretAuth:       true,
 			SupportsManagedServiceIdentity: d.Get("use_msi").(bool),
 			SupportsAzureCliToken:          true,
-			SupportsAuxiliaryTenants:       true,
+			SupportsAuxiliaryTenants:       flags.SupportAuxiliaryTenants,
 
 			// Doc Links
 			ClientSecretDocsLink: "https://www.terraform.io/docs/providers/azurerm/auth/service_principal_client_secret.html",
 		}
+
+		panic("weee")
 
 		authConfig, err := authBuilder.Build()
 		if err != nil {
