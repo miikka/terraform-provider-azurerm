@@ -1,4 +1,4 @@
-module github.com/terraform-providers/terraform-provider-azurerm
+module github.com/miikka/terraform-provider-azurerm
 
 require (
 	github.com/Azure/azure-sdk-for-go v31.0.0+incompatible
